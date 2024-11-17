@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enzo's Elderly Tech Support</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2b6875;
+            color: #333;
+        }
+        #sidebar {
+            background-color: #a3c5cd;
+            width: 200px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            transition: left 0.3s ease;
+            z-index: 1000;
+        }
+        #sidebar button {
+            background: none;
+            border: none;
+            color: #333;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        #toggle-sidebar {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 1100;
+            background-color: #a3c5cd;
+            border: none;
+            color: #333;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        #content {
+            padding: 20px;
+            background-color: #376c79;
+            margin-left: 0;
+            min-height: 100vh;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        #contact-info {
+            display: none;
+        }
+        #price-table {
+            background-color: #a3c5cd;
+            border-radius: 8px;
+            padding: 20px;
+            width: 80%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #a3c5cd;
+            border-radius: 5px;
+        }
+        .centered-image {
+            display: block;
+            margin: 20px auto;
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .disclaimer-section {
+            background-color: #a3c5cd;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 30px;
+            max-width: 600px;
+            margin: 30px auto;
+        }
+        .gallery {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .gallery img {
+            max-width: 45%;
+            height: auto;
+            border-radius: 8px;
+        }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 600px) {
+            #sidebar {
+                width: 100vw;
+                left: -100vw;
+            }
+            #toggle-sidebar {
+                font-size: 14px;
+                padding: 8px;
+            }
+            #content {
+                padding: 10px;
+            }
+            h1, h2 {
+                font-size: 1.5em;
+                text-align: center;
+            }
+        }
+    </style>
+    <script>
+        function toggleSidebar() {
+            var sidebar = document.getElementById("sidebar");
+            var toggleButton = document.getElementById("toggle-sidebar");
+            if (sidebar.style.left === "-250px" || sidebar.style.left === "-100vw") {
+                sidebar.style.left = "0";
+                toggleButton.innerText = "✕";
+            } else {
+                sidebar.style.left = (window.innerWidth <= 600) ? "-100vw" : "-250px";
+                toggleButton.innerText = "☰ Menu";
+            }
+        }
+
+        function toggleContact() {
+            var contactInfo = document.getElementById("contact-info");
+            contactInfo.style.display = (contactInfo.style.display === "none") ? "block" : "none";
+        }
+    </script>
+</head>
+<body>
+    <button id="toggle-sidebar" onclick="toggleSidebar()">☰ Menu</button>
+    
+    <div id="sidebar">
+        <button onclick="toggleContact()">Contact Me</button>
+        <div id="contact-info">
+            <p>Email: enzopereira.work@gmail.com</p>
+        </div>
+        <a href="#prices"><button>What I Do & Prices</button></a>
+        <a href="#disclaimer"><button>Disclaimer & Terms</button></a>
+    </div>
+    
+    <div id="content">
+        <div class="section" style="background-color: #a3c5cd; padding: 20px; border-radius: 8px;">
+            <h1>Welcome to Enzo's Elderly Tech Support</h1>
+            <p>Enzo's Elderly Tech Support is a small business where I, a 13-year-old boy, help elderly people with their devices. Whether it’s setting up a phone, backing up photos, or assisting with a computer, I'm here to simplify technology for you.</p>
+        </div>   
+            
+            <img src="images/business.png" alt="Helping elderly person with phone" class="centered-image">
+        
+        <div class="gallery">
+            <img src="images/kitty.jpg" alt="Image 1 description">
+            <img src="images/kitty2.jpg" alt="Image 2 description">
+        </div>
+        
+        <div id="prices" class="section">
+            <h2 style="text-align: center; font-size: 2em;">What I Do & Prices</h2>
+            <div id="price-table">
+                <div class="price-item">
+                    <strong>Photo backup:</strong>
+                    <span>Keep your memories safe and secure.</span>
+                </div>
+                <div class="price-item">
+                    <strong>Device setup:</strong>
+                    <span>Get your device up and running smoothly.</span>
+                </div>
+                <div class="price-item">
+                    <strong>Storage clearing:</strong>
+                    <span>Get rid of things you don’t need and start fresh.</span>
+                </div>
+                <div class="price-item">
+                    <strong>General issues:</strong>
+                    <span>Tell me the problem, and I’ll get to work.</span>
+                </div>
+                <div class="price-item">
+                    <strong>Card and poster design:</strong>
+                    <span>Create an invitation card or poster to send out.</span>
+                </div>
+                <p style="text-align: center; font-weight: bold;">Prices from €10–€25</p>
+            </div>
+        </div>
+        
+        <div id="disclaimer" class="disclaimer-section">
+            <h2>Disclaimer & Terms of Service</h2>
+            <h3>Disclaimer of Liability</h3>
+            <p>While I strive to provide the best support possible, I am not liable for any unintended outcomes, such as accidental data loss or device issues arising from the support provided. By using my service, you agree to this limitation of liability.</p>
+            
+            <h3>Terms of Service</h3>
+            <p>My services are intended for basic tech support and troubleshooting. I do not provide complex technical repairs or hardware fixes. All services are offered on a best-effort basis.</p>
+            
+            <h3>Privacy Policy</h3>
+            <p>I respect your privacy. Any personal information, such as photos or contact details, will not be shared with third parties and will be handled with care and confidentiality.</p>
+            
+            <h3>Parental Consent</h3>
+            <p>Please note that this business is operated by a minor. I have the consent of my guardian to provide these services. By engaging in a transaction with me, you acknowledge and accept this arrangement.</p>
+        </div>
+    </div>
+</body>
+</html>
